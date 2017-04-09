@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>html5SliceUpload</title>
+<link rel="stylesheet" type="text/css" href="./css/html5uploader.css"/>
+<style type="text/css">
+	#dropFile{
+		width:150px;height:150px;border:1px dashed red;
+		font-size:13px;line-height:150px;text-align:center;
+	}
+</style>
+
+</head>
+
+<body>
+	
+	<div id="dropFile"><div id="upload"></div></div>
+	<ol id="showFileList"></ol>
+
+</body>
+</html>
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/jQ.html5SliceUpload.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#upload').html5SliceUpload({
+		auto:false,
+		multi:true,
+		removeTimeout:0,
+		ajax_timeout: 60000,
+		file_num: 0,
+		// fileTypeExts: 'audio/mp3,audio/mp4',
+		url:'./php/upload.php',
+		buttonText:'选择/拖拽文件',
+		onUploadStart:function(){
+			// alert('开始上传');
+		},
+		onInit:function(){
+			// alert('初始化');
+		},
+		onUploadComplete:function(){
+			// alert('上传完成');
+		},
+		onUploadError:function(file, text){
+			alert(file.name+'，'+text);
+		},
+		onNumEnough: function(num){
+			alert('超过文件上传数量限制: '+num);
+		}
+	});
+});
+</script>
