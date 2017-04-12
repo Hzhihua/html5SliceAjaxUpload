@@ -1,5 +1,5 @@
 # html5SliceAjaxUpload
-使用html5的切割文件＋ajax的异步上传(支持多文件上传)
+使用html5的切割文件＋ajax的同步上传(支持多文件上传)
 
 解决了服务器上传文件大小的限制
 
