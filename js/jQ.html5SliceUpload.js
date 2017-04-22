@@ -255,7 +255,10 @@
                     var eleProgress = $('#' + file.index + 'file .progress')
                       , percent = (loaded / total * 100).toFixed(2) + '%';
                     if(loaded >= total){percent = '100%';}
-                    eleProgress.find('.progressbar').css('width', percent);
+                    // eleProgress.find('.progressbar').css('width', percent);
+                    eleProgress.find('.progressbar').animate({
+                   		width: percent
+                    }, 500);
                     if(total-loaded<500000){loaded = total;}//解决四舍五入误差
                     eleProgress.parents('li').find('.progressnum').html(formatFileSize(loaded) + '/' + formatFileSize(total));
                     eleProgress.parents('li').find('.upload_percent').html(percent);
